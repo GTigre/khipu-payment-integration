@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Pago con Khipu</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 400px; margin: 60px auto; }
+    h2 { color: #017ac3; }
+    label, input { display: block; margin: 8px 0; }
+    button { background: #017ac3; color: #fff; padding: 10px 22px; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #01406e; }
+    #result { margin-top: 20px; }
+    .error { color: #c00; }
+  </style>
+</head>
+<body>
+  <h2>Pagar con Khipu</h2>
+  <form id="payForm">
+    <label>
+      Monto (CLP, máx $5.000):
+      <input type="number" id="amount" value="1000" min="1" max="5000" required />
+    </label>
+    <label>
+      Descripción:
+      <input type="text" id="subject" value="Pago de prueba" required />
+    </label>
+    <button type="submit">Pagar con Khipu</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    document.getElementById('payForm').onsubmit = async function (e) {
+      e.preventDefault();
+      const amount = document.getElementById('amount').value;
+      const subject = document.getElementById('subject').value;
+      const result = document.getElementById('result');
+      result.textContent = '';
+      result.className = '';
+
+      try {
+        const res = await fetch('/api/payments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: Number(amount), subject })
+        });
+        const data = await res.json();
+        if (data.payment_url) {
+          result.innerHTML = '<b>Redireccionando a Khipu...</b>';
+          setTimeout(() => { window.location.href = data.payment_url; }, 800);
+        } else {
+          result.textContent = data.error || 'Error desconocido';
+          result.className = 'error';
+        }
+      } catch (err) {
+        result.textContent = 'Error en la solicitud: ' + err.message;
+        result.className = 'error';
+      }
+    };
+  </script>
+</body>
+</html>
