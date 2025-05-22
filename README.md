@@ -1,3 +1,4 @@
+
 # Khipu Payment Integration Demo
 
 Esta es una demo simple de integración con la API de pagos de [Khipu](https://khipu.com) en el entorno de pruebas (`DemoBank`). Permite simular la creación de un cobro y redireccionar al flujo de pago de Khipu.
@@ -114,7 +115,15 @@ Gonzalo Tigre
 +56965239022  
 [https://www.linkedin.com/in/gonzalo-tigre/](https://www.linkedin.com/in/gonzalo-tigre/)
 
----
+# Imagenes del proceso 
+1ero generar la cuenta de Khipu y habilitar modo dev con su respectiva API Key
+![image](https://github.com/user-attachments/assets/a6148235-1afc-4e9f-806e-1a78832a6a54)
 
-**¡Listo para usar, clonar y subir a GitHub!**  
-Si necesitas ayuda con el deploy o explicación para la entrevista, avísame.
+2do Prompt a Chat GPT 4.1 
+![image](https://github.com/user-attachments/assets/22d92eb7-a491-45d4-a3a2-4c34c04155ac)
+
+3ero crear repo y subir código 
+![image](https://github.com/user-attachments/assets/77099476-7881-4da7-a31f-a67af0560b71)
+
+4to Documentar pasos
+![image](https://github.com/user-attachments/assets/c1333aa9-dcc7-428b-9315-5e6d57c3ae50)
