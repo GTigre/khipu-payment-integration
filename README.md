@@ -111,7 +111,7 @@ npm start
 
 **Contacto:**  
 Gonzalo Tigre  
-<tu-email@ejemplo.com>  
++56965239022  
 [https://www.linkedin.com/in/gonzalo-tigre/](https://www.linkedin.com/in/gonzalo-tigre/)
 
 ---
